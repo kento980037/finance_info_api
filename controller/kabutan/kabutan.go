@@ -1,0 +1,17 @@
+package kabutan
+
+import (
+	"net/http"
+
+	"github.com/labstack/echo/v4"
+
+	"finance-info-api/scraping/kabutan"
+)
+
+func GetEntries() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		response := kabutan.Scraping()
+
+		return c.JSON(http.StatusOK, response)
+	}
+}
