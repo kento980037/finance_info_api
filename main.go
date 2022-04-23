@@ -5,9 +5,12 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	"finance-info-api/controller/kabutan"
 )
 
 func main() {
+
 	// make instance
 	e := echo.New()
 
@@ -17,9 +20,11 @@ func main() {
 
 	// config route
 	e.GET("/", hello)
+	e.GET("/year_high", kabutan.GetEntries())
 
 	// start the server on port number 1323
 	e.Logger.Fatal(e.Start(":1323"))
+
 }
 
 // define handler
