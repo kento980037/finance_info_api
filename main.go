@@ -7,6 +7,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 
 	"finance-info-api/controller/kabutan"
+	"finance-info-api/controller/mainIndex"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 	// config route
 	e.GET("/", hello)
 	e.GET("/year_high", kabutan.GetEntries())
+	e.GET("/main_index/:code", mainIndex.GetEntries())
 
 	// start the server on port number 1323
 	e.Logger.Fatal(e.Start(":1323"))
